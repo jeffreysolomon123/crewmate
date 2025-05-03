@@ -231,6 +231,20 @@ html {
  
 
 
+/* Header 2 Options */
+@media (max-width : 768px) {
+  .dashboard-options{
+    font-size: 12px;
+  }
+
+  .explore-btn-options {
+    font-size: 12px;
+  }
+
+  .header2-logo-options{
+    font-size: 15px;
+  }
+}
 
 /* Footer */
 .site-footer {
@@ -412,4 +426,246 @@ html {
 
 .login-button:hover{
   cursor: pointer;
+}
+
+
+
+/* New Project Page */
+
+.new-project-heading {
+  font-size: 36px;
+  font-weight: 300;
+  color: #080F0E;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.new-project-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+}
+
+.new-project-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-project-label {
+  font-size: 14px;
+  color: #080F0E;
+  margin-bottom: 8px;
+}
+
+.new-project-input,
+.new-project-textarea {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #080F0E;
+  margin-bottom: 20px;
+}
+
+.new-project-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.new-project-input::placeholder,
+.new-project-textarea::placeholder {
+  color: #888;
+}
+
+.new-project-submit-button {
+  padding: 12px;
+  font-size: 15px;
+  background-color: #080F0E;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 150px;
+  align-self: center;
+  margin-bottom: 150px;
+}
+
+.new-project-submit-button:hover {
+  background-color: #0a1a18;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .new-project-container {
+    padding: 15px;
+    width: 400px;
+  }
+
+  .new-project-heading {
+    font-size: 28px;
+  }
+
+  .new-project-submit-button {
+    width: 100%;
+  }
+}
+
+
+
+/* Dashboard Page */.dashboard-top-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-heading {
+  flex: 1 1 100%;
+  font-size: 36px;
+  font-weight: 500;
+  color: #080F0E;
+  margin-bottom: 10px;
+}
+
+/* Grouping buttons into left and right sections */
+.dashboard-buttons-left {
+  display: flex;
+  gap: 10px;
+}
+
+.dashboard-buttons-right {
+  margin-left: auto;
+}
+
+
+.dashboard-editprofile-button{
+  padding: 10px 16px;
+  background-color: #080F0E;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard-notifications-button{
+  padding: 10px 16px;
+  background-color: #199319;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard-newpost-button{
+  padding: 10px 16px;
+  background-color: #0936ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard-notifications-button:hover,
+.dashboard-editprofile-button:hover{
+  background-color: #121b1a;
+}
+
+@media (max-width: 600px) {
+  .dashboard-top-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Ensuring buttons stay in a single line on mobile */
+  .dashboard-buttons-left,
+  .dashboard-buttons-right {
+    display: flex;
+    flex-direction: row;  /* Keep buttons in a row */
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: nowrap;  /* Prevent wrapping */
+  }
+
+  .dashboard-buttons-left {
+    margin-bottom: 10px;
+  }
+
+  .dashboard-notifications-button,
+  .dashboard-editprofile-button{
+    width: 100%;
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  .dashboard-newpost-button{
+    width: 200px;
+    
+  }
+  
+}
+
+.dashboard-projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.project-card {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  color: #080F0E;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-button {
+  background-color: #e0e0e0;
+  color: #080F0E;
+}
+
+.delete-button {
+  background-color: #ffdddd;
+  color: #c00;
 }

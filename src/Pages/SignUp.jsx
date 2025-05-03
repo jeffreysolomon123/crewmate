@@ -15,7 +15,7 @@ function SignUp() {
     e.preventDefault();
     console.log({ name, email, password, skills });
     try {
-        const response = await axios.post("http://localhost:3000/signup", {name, email, password}, {withCredentials:true});
+        const response = await axios.post("https://crewmate-api-v2.vercel.app/signup", {name, email, password}, {withCredentials:true});
         if(response.status === 200) {
             navigate('/onboard');
           }

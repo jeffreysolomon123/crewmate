@@ -14,7 +14,7 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try { 
-        await axios.post("http://localhost:3000/login", {email,password}, {withCredentials:true});
+        await axios.post("https://crewmate-api-v2.vercel.app/login", {email,password}, {withCredentials:true});
         navigate('/explore');
   
       } catch (error) {

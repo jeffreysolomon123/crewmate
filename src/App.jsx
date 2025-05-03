@@ -7,7 +7,7 @@ import Onboard from "./Pages/Onboard"
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Dashboard from './Pages/Dashboard';
-
+import NewProject from './Pages/NewProject';
 
 
 
@@ -25,6 +25,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/newproject' element={<NewProject />} />
           </Routes>
         </Router>
     </div>
