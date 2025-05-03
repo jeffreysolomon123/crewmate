@@ -4,14 +4,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header3 from "../Components/Header3";
 import { FaPlus } from "react-icons/fa";
-import { FaPen } from "react-icons/fa";
-import { FaBell } from "react-icons/fa";
-
 
 function Dashboard() {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState();
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true); // new loading state
 
   useEffect(() => {
     const checkAuthentication = async () => {
@@ -44,9 +42,11 @@ function Dashboard() {
           { userId: userInfo.id },
           { withCredentials: true }
         );
-        setProjects(response.data.projects); 
+        setProjects(response.data.projects);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false); // set loading to false after fetch
       }
     };
 
@@ -57,34 +57,30 @@ function Dashboard() {
     <div>
       <Header3 />
       <div>
-      <div className="dashboard-top-container">
-  <h1 className="dashboard-heading">Dashboard</h1>
-  
-  <div className="dashboard-buttons-left">
-    <button className="dashboard-notifications-button">Notifications <FaBell style={{ position: 'relative', top: '2px' }}/></button>
-    <button className="dashboard-editprofile-button">Edit Profile  <FaPen style={{ position: 'relative', top: '2px' }} /></button>
-  </div>
+        <div className="dashboard-top-container">
+          <h1 className="dashboard-heading" style={{ marginBottom: "0", textAlign: "center" }}>Dashboard</h1>
+        </div>
 
-  <div className="dashboard-buttons-right">
-    <a href="/newproject"><button className="dashboard-newpost-button">New Project <FaPlus style={{ position: 'relative', top: '2px' }} /></button></a>
-  </div>
+        <div className="dashboard-projects-container">
+          <h1 className="dashboard-heading" style={{ fontSize: "30px" }}>My Projects</h1>
+          <div className="dashboard-buttons-left">
+            <a href="/newproject"><button className="dashboard-newpost-button">New Project <FaPlus style={{ position: 'relative', top: '2px' }} /></button></a>
+          </div>
 
-</div>
-
-
-
-            <div className="dashboard-projects-container">
-            <h1 className="dashboard-heading">My Projects</h1>
-              {projects.map((project) => (
-                <div key={project.id} className="project-card">
-                  <h3 className="project-title">{project.title}</h3>
-                  <div className="project-buttons">
-                    <button className="edit-button">Edit</button>
-                    <button className="delete-button">Delete</button>
-                  </div>
+          {loading ? (
+            <p className="loading-text">Loading your projects...</p>
+          ) : (
+            projects.map((project) => (
+              <div key={project.id} className="project-card">
+                <h3 className="project-title">{project.title}</h3>
+                <div className="project-buttons">
+                  <button className="edit-button">Edit</button>
+                  <button className="delete-button">Delete</button>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
