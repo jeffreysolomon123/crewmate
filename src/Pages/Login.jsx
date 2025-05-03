@@ -46,6 +46,8 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
+<button type="submit" className="login-button whitebutton" onClick={handleSubmit}>Submit</button>
        <a 
   href="/signup" 
   style={{
@@ -59,7 +61,7 @@ function Login() {
 >
   Don't have an account? Create a new account
 </a>
-        <button type="submit" className="login-button whitebutton" onClick={handleSubmit}>Submit</button>
+        
       </form>
     </div>
   </div>

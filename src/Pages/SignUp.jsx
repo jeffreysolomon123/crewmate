@@ -2,32 +2,20 @@ import React, { useState } from "react";
 import "../App.css";
 import { useNavigate, useNavigationType } from "react-router-dom";
 import axios from "axios";
-
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 function SignUp() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [skill, setSkill] = useState("");
-  const [skills, setSkills] = useState([]);
   const navigate = useNavigate();
 
-  function addSkill(e) {
-    e.preventDefault(); // prevents form submission
-    if (skill.trim()) {
-      setSkills([...skills, skill.trim()]);
-      setSkill("");
-    }
-  }
-
-  function removeSkill(index) {
-    setSkills(skills.filter((_, i) => i !== index));
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
     console.log({ name, email, password, skills });
     try {
-        const response = await axios.post("http://localhost:3000/signup", {name, email, password, skills}, {withCredentials:true});
+        const response = await axios.post("http://localhost:3000/signup", {name, email, password}, {withCredentials:true});
         if(response.status === 200) {
             navigate('/onboard');
           }
@@ -37,7 +25,12 @@ function SignUp() {
   }
 
   return (
-    <div id="signUpFormContainer">
+    <div>
+      <Header />
+    <div className="login-page-container">
+      <h1 className="login-heading">Register</h1>
+
+      <div className="login-form-container">
       <form onSubmit={handleSubmit}>
         <label htmlFor="nameInputField">Name</label>
         <input 
@@ -62,28 +55,26 @@ function SignUp() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <button type="submit" className="login-button whitebutton">Submit</button>
 
-        <label htmlFor="skillInputField">Skills</label>
-        <input
-          type="text"
-          id="skillInputField"
-          placeholder="Enter a skill"
-          value={skill}
-          onChange={(e) => setSkill(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && addSkill(e)}
-        />
-        <button onClick={addSkill}>Add</button>
-
-        <ul>
-          {skills.map((s, i) => (
-            <li key={i}>
-              {s} <button type="button" onClick={() => removeSkill(i)}>x</button>
-            </li>
-          ))}
-        </ul>
-
-        <button type="submit">Submit</button>
       </form>
+      <a 
+  href="/login" 
+  style={{
+    fontWeight: "100",
+    fontSize: "15px",
+    marginTop: "20px",
+    color: "white",
+    textDecoration: "underline",
+    display: "inline-block" // ensure spacing works properly
+  }}
+>
+  Already have an account? Login into account
+</a>
+      
+      </div>
+    </div>
+    <Footer />
     </div>
   );
 }
