@@ -1,18 +1,410 @@
-#signUpFormContainer{
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* spacing between elements */
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
 }
 
-#signUpFormContainer form {
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+/*Header*/
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #080F0E;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  border-bottom: solid rgba(255, 255, 255, 0.158) 0.5px;
+}
+.logo {
+  font-size: 25px;
+  font-weight: 300;
+  color: #FFFFFF; /* Indigo */
+}
+
+.logo:hover{
+  cursor: pointer;
+  color: #ffffffcf;
+}
+
+
+
+
+
+.nav .exploreBtn {
+  color: #FFFFFF;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.nav .loginBtn {
+  color: #080F0E;
+  background-color: #D9D9D9;
+  border-radius: 8px;
+  padding: 10px 20px ;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.nav .loginBtn:hover {
+  background-color: #b7b7b7;
+}
+
+
+
+
+
+
+/* Home page */
+
+.hero-section-home {
+  position: relative;
+  background-image: url('/assets/home-page-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+.whitebutton {
+  color: #080F0E;
+  background-color: #D9D9D9;
+  border-radius: 8px;
+  padding: 10px 20px ;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.whitebutton:hover{
+  background-color: #b7b7b7;
+}
+
+.learn-more-button{
+  color: #ffffff;
+  background-color: #d9d9d900;
+  border-radius: 8px;
+  border: solid white 1.5px;
+  padding: 10px 20px ;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-section-home::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: 1;
+}
+
+.hero-section-home > * {
+  position: relative;
+  z-index: 2; /* So content appears above overlay */
+}
+
+.hero-heading {
+  font-size: 70px;
+  margin-top: 25vh;
+  font-weight: 100;
+}
+.hero-subheading {
+  font-size: 20px;
+  font-weight: 50;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .hero-heading{
+    font-size: 40px;
+  }
+
+  .hero-subheading{
+   font-size: 15px;
+  }
+}
+
+
+/* How it works - section */
+
+.howitworks-section {
+  padding: 80px 1rem 100px; 
+  position: relative;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Background image layer */
+.howitworks-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/home-page-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  filter: brightness(20%); /* Darken the image */
+  z-index: -1;
+}
+
+
+.hiw-heading{
+    font-size: 70px;
+    font-weight: 50;
+    margin-top: 170px;
+  }
+  
+  @media (max-width: 768px) {
+    .hiw-heading{
+      font-size: 40px;
+      margin-top: 0;
+    }
+}
+
+
+.hiw-cards-section{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 80%;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .hiw-cards-section{
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+.hiw-card {
+  text-align: left;
+
+}
+
+.hiw-number {
+  margin-top: 30px;
+  font-weight: 100;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+
+.hiw-card-heading{
+  font-weight: 400;
+}
+
+
+
+.hiw-card-content {
+  font-weight: 100;
+  margin-top: 20px;
+}
+ 
+
+
+
+/* Footer */
+.site-footer {
+  background-color: #080F0E;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: 100;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+/* Login Page */
+
+.login-page {
+    padding: 80px 1rem 100px; 
+    position: relative;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  /* Background image layer */
+  .login-page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/home-page-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    filter: brightness(20%); /* Darken the image */
+    z-index: -1;
+  }
+
+  .lgn-heading {
+    font-size: 60px;
+    font-weight: 100;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  /* Login Page */
+.login-page {
+  padding: 80px 1rem 100px;
+  position: relative;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Background overlay for login page */
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/home-page-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  filter: brightness(20%);
+  z-index: -1;
+}
+
+/* Form container */
+.login-page-container {
+  padding: 80px 1rem 100px; 
+  position: relative;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Background image layer */
+.login-page-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/home-page-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  filter: brightness(20%); /* Darken the image */
+  z-index: -1;
+}
+
+/* Heading */
+.login-heading {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 100;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+@media (max-width : 768px) {
+  .login-heading {
+    font-size: 40px;
+  }
+}
+
+.login-form-container{
+  width: 600px;
+}
+
+@media (max-width :768px) {
+  .login-form-container{
+    width: 400px;
+  }
+}
+.login-form-container form {
   display: flex;
   flex-direction: column;
 }
 
-#signUpFormContainer input,
-#signUpFormContainer label {
+/* Input and Label Styling */
+.login-form-container label {
+  text-align: left;
+  font-size: 14px;
   margin-bottom: 10px;
+  font-weight: 200;
+}
+
+.login-form-container input {
+  width: 100%; /* Or use a fixed width like 300px if preferred */
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f873;
+  margin-bottom: 15px;
+}
+
+
+.login-button{
+  width: 100px;
+  align-self: center;
+  margin-top: 30px;
+}
+
+.login-button:hover{
+  cursor: pointer;
 }

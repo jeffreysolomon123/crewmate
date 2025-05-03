@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import '../App.css';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-
+import Header from "../Components/Header.jsx"
+import Footer from "../Components/Footer.jsx"
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -22,12 +23,16 @@ function Login() {
       }
   }
   return (
-    <div id="signUpFormContainer">
+<div>    
+  <Header />
 
-<form onSubmit={handleSubmit}>
+  <div className="login-page-container">
+    <h1 className="login-heading">Login</h1>
 
+    <div className="login-form-container">
+      <form onSubmit={handleSubmit}>
         <label htmlFor="emailInputField">Email</label>
-        <input 
+        <input
           type="email"
           id="emailInputField"
           value={email}
@@ -35,18 +40,33 @@ function Login() {
         />
 
         <label htmlFor="passwordInputField">Password</label>
-        <input 
+        <input
           type="password"
           id="passwordInputField"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-
-        <button type="submit">Submit</button>
+       <a 
+  href="/signup" 
+  style={{
+    fontWeight: "100",
+    fontSize: "15px",
+    marginTop: "20px",
+    color: "white",
+    textDecoration: "underline",
+    display: "inline-block" // ensure spacing works properly
+  }}
+>
+  Don't have an account? Create a new account
+</a>
+        <button type="submit" className="login-button whitebutton" onClick={handleSubmit}>Submit</button>
       </form>
-      
     </div>
+  </div>
+
+  <Footer />
+</div>
+
   );
 }
 
