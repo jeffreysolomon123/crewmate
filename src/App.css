@@ -372,7 +372,7 @@ html {
 
 @media (max-width :768px) {
   .login-form-container{
-    width: 400px;
+    width: 300px;
   }
 }
 .login-form-container form {
@@ -396,7 +396,10 @@ html {
   border: 1px solid #ccc;
   background-color: #f8f8f873;
   margin-bottom: 15px;
+  color: white;
 }
+
+
 
 
 .login-button{
