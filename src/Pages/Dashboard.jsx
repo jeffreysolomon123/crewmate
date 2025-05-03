@@ -16,7 +16,7 @@ function Dashboard() {
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
+        const response = await axios.get("http://localhost:3000/auth/check", {
           withCredentials: true,
         });
 
@@ -72,18 +72,19 @@ function Dashboard() {
 </div>
 
 
-        <div className="dashboard-projects-container">
-        <h1 className="dashboard-heading">My Projects</h1>
-          {projects.map((project) => (
-            <div key={project.id} className="project-card">
-              <h3 className="project-title">{project.title}</h3>
-              <div className="project-buttons">
-                <button className="edit-button">Edit</button>
-                <button className="delete-button">Delete</button>
-              </div>
+
+            <div className="dashboard-projects-container">
+            <h1 className="dashboard-heading">My Projects</h1>
+              {projects.map((project) => (
+                <div key={project.id} className="project-card">
+                  <h3 className="project-title">{project.title}</h3>
+                  <div className="project-buttons">
+                    <button className="edit-button">Edit</button>
+                    <button className="delete-button">Delete</button>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
       </div>
     </div>
   );

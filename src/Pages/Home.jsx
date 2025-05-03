@@ -1,18 +1,39 @@
-import React from "react";
+import React, { use } from "react";
 import { useEffect, useState } from 'react';
 import '../App.css';
 import Header from "../Components/Header";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa6";
 import Footer from "../Components/Footer";
+import Header2 from "../Components/Header2";
 
+import axios from "axios";
 
 
 function Home() {
+    const[isLogged, setIsLogged] = useState(false);
+
+    useEffect(() => {
+        const checkAuthentication = async () => {
+          try {
+            const response = await axios.get("http://localhost:3000/auth/check", {
+              withCredentials: true,
+            });
+    
+            if (response.data.authenticated) {
+              setIsLogged(true)
+            }
+          } catch (error) {
+            console.log("Error checking authentication:", error);
+          }
+        };
+    
+        checkAuthentication();
+      },[]);
 
     return (
         <div>
-            <Header />
+            {isLogged === true ? <Header2 /> : <Header />}
             <div className="hero-section-home">
                 <h1 className="hero-heading">
                     Find Your Crew

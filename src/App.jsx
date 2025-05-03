@@ -8,6 +8,7 @@ import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Dashboard from './Pages/Dashboard';
 import NewProject from './Pages/NewProject';
+import ProjectDetail from './Pages/ProjectDetail';
 
 
 
@@ -26,6 +27,7 @@ function App() {
             <Route path='/signup' element={<SignUp />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/newproject' element={<NewProject />} />
+            <Route path="/project/:id" element={<ProjectDetail />} />
           </Routes>
         </Router>
     </div>
