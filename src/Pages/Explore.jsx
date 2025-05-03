@@ -8,7 +8,7 @@ function Explore() {
   useEffect(() => {
     const checkAuthentication = async ()=>{
         try {
-            const response = await axios.get("http://localhost:3000/auth/check", {
+            const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
                 withCredentials: true // Allows Cookies to Be Sent/Received
             })
 
