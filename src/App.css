@@ -368,11 +368,13 @@ html {
 
 .login-form-container{
   width: 600px;
+  align-self: center;
 }
 
 @media (max-width :768px) {
   .login-form-container{
     width: 300px;
+    align-self: center;
   }
 }
 .login-form-container form {
