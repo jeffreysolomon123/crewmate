@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header3 from "../Components/Header3";
 import { FaPlus } from "react-icons/fa";
+import Footer from "../Components/Footer";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -54,8 +55,9 @@ function Dashboard() {
   }, [userInfo]);
 
   return (
-    <div>
+    <div className="page-wrapper">
       <Header3 />
+      <main className="page-content">
       <div>
         <div className="dashboard-top-container">
           <h1 className="dashboard-heading" style={{ marginBottom: "0", textAlign: "center" }}>Dashboard</h1>
@@ -82,6 +84,8 @@ function Dashboard() {
           )}
         </div>
       </div>
+      </main>
+      <Footer />
     </div>
   );
 }

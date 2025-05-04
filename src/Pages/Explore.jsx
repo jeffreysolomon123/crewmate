@@ -53,7 +53,7 @@ function Explore() {
   }, [userInfo]);
 
   return (
-    <div>
+    <div className="page-wrapper">
       <Header2 />
       <div className="explore-container">
         <h1 className="explore-title">Explore Projects</h1>
