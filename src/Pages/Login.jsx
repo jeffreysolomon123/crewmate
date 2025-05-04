@@ -15,7 +15,7 @@ function Login() {
     useEffect(() => {
       const checkAuthentication = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/auth/check", {
+          const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
             withCredentials: true,
           });
   
@@ -34,7 +34,7 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try { 
-        await axios.post("http://localhost:3000/login", {email,password}, {withCredentials:true});
+        await axios.post("https://crewmate-api-v2.vercel.app/login", {email,password}, {withCredentials:true});
         navigate('/explore');
   
       } catch (error) {

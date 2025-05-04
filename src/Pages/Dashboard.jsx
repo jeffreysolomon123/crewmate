@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import Header3 from "../Components/Header3";
 import { FaPlus } from "react-icons/fa";
 import Footer from "../Components/Footer";
+import { FaBell } from "react-icons/fa6";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function Dashboard() {
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/auth/check", {
+        const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
           withCredentials: true,
         });
 
@@ -39,7 +40,7 @@ function Dashboard() {
 
       try {
         const response = await axios.post(
-          "http://localhost:3000/fetchuserprojects",
+          "https://crewmate-api-v2.vercel.app/fetchuserprojects",
           { userId: userInfo.id },
           { withCredentials: true }
         );
@@ -60,7 +61,7 @@ function Dashboard() {
     if (!confirmDelete) return;
   
     try {
-      await axios.delete(`http://localhost:3000/delete/${projectId}`, {
+      await axios.delete(`https://crewmate-api-v2.vercel.app/${projectId}`, {
         withCredentials: true,
       });
       setProjects(projects.filter((p) => p.id !== projectId));
@@ -76,11 +77,12 @@ function Dashboard() {
       <Header3 />
       <main className="page-content">
       <div>
-
+      <h1 className="dashboard-heading" style={{ fontSize: "25px" , textAlign:"center", marginTop : "20px" }}>Welcome back, {userInfo.name}</h1>
         <div className="dashboard-projects-container">
           <h1 className="dashboard-heading" style={{ fontSize: "30px" }}>My Projects</h1>
           <div className="dashboard-buttons-left">
             <a href="/newproject"><button className="dashboard-newpost-button">New Project <FaPlus style={{ position: 'relative', top: '2px' }} /></button></a>
+            <a href="/notifications"><button className="dashboard-newpost-button">Notifications <FaBell style={{ position: 'relative', top: '2px' }} /></button></a>
           </div>
 
           {loading ? (

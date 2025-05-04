@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Form, useParams } from "react-router-dom";
 import axios from "axios";
 import Header2 from "../Components/Header2";
 import Footer from "../Components/Footer";
@@ -12,6 +12,7 @@ function ProjectDetail() {
   const [userDetails,setUserDetails] = useState();
   const [projectUserName, setPorjectUserName] = useState('');
   const [projectUserEmail, setProjectUserEmail] = useState('');
+  const [ projectUserId,setProjectUserId] = useState('');
   const[message, setMessage] = useState('');
   const navigate = useNavigate();
 
@@ -42,7 +43,7 @@ function ProjectDetail() {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/project/${id}`, {
+        const response = await axios.get(`https://crewmate-api-v2.vercel.app/project/${id}`, {
           withCredentials: true
         });
         setProject(response.data.project);
@@ -59,11 +60,12 @@ function ProjectDetail() {
     if (!userInfo) return; 
     const getName = async () => {
       try {
-        const response =  await axios.post("http://localhost:3000/getname", {projectId : id}, {withCredentials : true});
-        // setUserDetails(response.data.user); 
+        const response =  await axios.post("https://crewmate-api-v2.vercel.app/getname", {projectId : id}, {withCredentials : true});
+        //setUserDetails(response.data.user); 
         console.log(response.data.projectUserDetails);
         setPorjectUserName(response.data.projectUserDetails.name);
         setProjectUserEmail(response.data.projectUserDetails.email);
+        setProjectUserId(response.data.projectUserDetails.id);
       } catch (error) {
         console.log(error)
       }
@@ -72,6 +74,17 @@ function ProjectDetail() {
 
   },[userInfo]);
 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("https://crewmate-api-v2.vercel.app/messagepost", {message, senderId: userInfo.id , receiverId : projectUserId , projectId : id , senderEmail : userInfo.email, senderName : userInfo.name } , {withCredentials: true} );
+      alert("Message sent!");
+      navigate(`/project/${id}`);
+    } catch (error) {
+      console.log("Error sending the message",error);
+    }
+  }
 
 
   
@@ -93,6 +106,7 @@ function ProjectDetail() {
         <div className="message-container">
           
         <h4>Start working now!</h4>
+        <form onSubmit={handleSubmit}>    
         <textarea
             className="message-project-textarea"
             id="project-description"
@@ -100,7 +114,8 @@ function ProjectDetail() {
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Write your message here to start working with project owner..."
         />
-        <button className="reach-btn">Send Message</button>
+        <button className="reach-btn" type="submit" >Send Message</button>
+         </form>
         </div>
       </div>
       </main>

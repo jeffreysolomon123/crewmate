@@ -10,6 +10,7 @@ import Dashboard from './Pages/Dashboard';
 import NewProject from './Pages/NewProject';
 import ProjectDetail from './Pages/ProjectDetail';
 import EditProject from './Pages/EditProject';
+import Notifications from './Pages/Notifications';
 
 
 
@@ -30,6 +31,7 @@ function App() {
             <Route path='/newproject' element={<NewProject />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
             <Route path="/edit/:id" element={<EditProject />} />
+            <Route path='/notifications' element={<Notifications />}/>
           </Routes>
         </Router>
     </div>
