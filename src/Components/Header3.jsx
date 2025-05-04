@@ -11,7 +11,7 @@ function Header3() {
 
   const handleLogOutBtn = async ()=> {
     try {
-      const response = await axios.post("https://crewmate-api-v2.vercel.app/logout",null, {withCredentials: true})
+      const response = await axios.post("https://crewmate-api-v2.onrender.com/logout",null, {withCredentials: true})
       navigate("/login")
       console.log("logged out successfully")
     } catch (error) {

@@ -19,7 +19,7 @@ function ProjectDetail() {
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/auth/check", {
+        const response = await axios.get("https://crewmate-api-v2.onrender.com/auth/check", {
           withCredentials: true,
         });
   
@@ -43,7 +43,7 @@ function ProjectDetail() {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`https://crewmate-api-v2.vercel.app/project/${id}`, {
+        const response = await axios.get(`https://crewmate-api-v2.onrender.com/project/${id}`, {
           withCredentials: true
         });
         setProject(response.data.project);
@@ -60,7 +60,7 @@ function ProjectDetail() {
     if (!userInfo) return; 
     const getName = async () => {
       try {
-        const response =  await axios.post("https://crewmate-api-v2.vercel.app/getname", {projectId : id}, {withCredentials : true});
+        const response =  await axios.post("https://crewmate-api-v2.onrender.com/getname", {projectId : id}, {withCredentials : true});
         //setUserDetails(response.data.user); 
         console.log(response.data.projectUserDetails);
         setPorjectUserName(response.data.projectUserDetails.name);
@@ -78,7 +78,7 @@ function ProjectDetail() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://crewmate-api-v2.vercel.app/messagepost", {message, senderId: userInfo.id , receiverId : projectUserId , projectId : id , senderEmail : userInfo.email, senderName : userInfo.name } , {withCredentials: true} );
+      const response = await axios.post("https://crewmate-api-v2.onrender.com/messagepost", {message, senderId: userInfo.id , receiverId : projectUserId , projectId : id , senderEmail : userInfo.email, senderName : userInfo.name } , {withCredentials: true} );
       alert("Message sent!");
       navigate(`/project/${id}`);
     } catch (error) {

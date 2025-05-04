@@ -16,7 +16,7 @@ function Dashboard() {
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
+        const response = await axios.get("https://crewmate-api-v2.onrender.com/auth/check", {
           withCredentials: true,
         });
 
@@ -40,7 +40,7 @@ function Dashboard() {
 
       try {
         const response = await axios.post(
-          "https://crewmate-api-v2.vercel.app/fetchuserprojects",
+          "https://crewmate-api-v2.onrender.com/fetchuserprojects",
           { userId: userInfo.id },
           { withCredentials: true }
         );
@@ -61,7 +61,7 @@ function Dashboard() {
     if (!confirmDelete) return;
   
     try {
-      await axios.delete(`https://crewmate-api-v2.vercel.app/${projectId}`, {
+      await axios.delete(`https://crewmate-api-v2.onrender.com/${projectId}`, {
         withCredentials: true,
       });
       setProjects(projects.filter((p) => p.id !== projectId));

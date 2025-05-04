@@ -16,7 +16,7 @@ function Notifications() {
       
         const getMessages = async () => {
           try {
-            const response = await axios.post("https://crewmate-api-v2.vercel.app/getmessages", { userId: userInfo.id }, { withCredentials: true });
+            const response = await axios.post("https://crewmate-api-v2.onrender.com/getmessages", { userId: userInfo.id }, { withCredentials: true });
             //console.log(response.data.Messages);
             setMessages(response.data.Messages);
           } catch (error) {
@@ -31,7 +31,7 @@ function Notifications() {
     useEffect(() => {
         const checkAuthentication = async () => {
           try {
-            const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
+            const response = await axios.get("https://crewmate-api-v2.onrender.com/auth/check", {
               withCredentials: true,
             });
       

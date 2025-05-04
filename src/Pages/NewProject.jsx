@@ -15,7 +15,7 @@ function NewProject() {
         e.preventDefault();
         console.log({title,description})
     try{
-        const response = await axios.post("https://crewmate-api-v2.vercel.app/newproject", {title, description , userId: userInfo.id}, {withCredentials:true});
+        const response = await axios.post("https://crewmate-api-v2.onrender.com/newproject", {title, description , userId: userInfo.id}, {withCredentials:true});
         if(response.status === 200) {
             navigate('/dashboard');
           }
@@ -28,7 +28,7 @@ function NewProject() {
   useEffect(() => {
     const checkAuthentication = async ()=>{
         try {
-            const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
+            const response = await axios.get("https://crewmate-api-v2.onrender.com/auth/check", {
                 withCredentials: true // Allows Cookies to Be Sent/Received
             })
 

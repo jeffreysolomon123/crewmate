@@ -14,7 +14,7 @@ function EditProject() {
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
+        const response = await axios.get("https://crewmate-api-v2.onrender.com/auth/check", {
           withCredentials: true,
         });
 
@@ -37,7 +37,7 @@ function EditProject() {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`https://crewmate-api-v2.vercel.app/edit/${id}`, {
+        const response = await axios.get(`https://crewmate-api-v2.onrender.com/edit/${id}`, {
           withCredentials: true,
         });
         setTitle(response.data.project.title);

@@ -16,7 +16,7 @@ function Home() {
     useEffect(() => {
         const checkAuthentication = async () => {
           try {
-            const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
+            const response = await axios.get("https://crewmate-api-v2.onrender.com/auth/check", {
               withCredentials: true,
             });
     

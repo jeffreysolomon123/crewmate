@@ -13,7 +13,7 @@ function SignUp() {
   useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        const response = await axios.get("https://crewmate-api-v2.vercel.app/auth/check", {
+        const response = await axios.get("https://crewmate-api-v2.onrender.com/auth/check", {
           withCredentials: true,
         });
 
@@ -34,7 +34,7 @@ function SignUp() {
     e.preventDefault();
     console.log({ name, email, password});
     try {
-        const response = await axios.post("https://crewmate-api-v2.vercel.app/signup", {name, email, password}, {withCredentials:true});
+        const response = await axios.post("https://crewmate-api-v2.onrender.com/signup", {name, email, password}, {withCredentials:true});
         if(response.status === 200) {
             navigate('/onboard');
           }
