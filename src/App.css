@@ -589,7 +589,7 @@ footer {
 
 .dashboard-newpost-button{
   padding: 10px 16px;
-  background-color: #0936ff;
+  background-color: #343434;
   color: white;
   border: none;
   border-radius: 8px;
@@ -677,6 +677,7 @@ footer {
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
+  text-decoration: none;
 }
 
 .edit-button {
@@ -721,7 +722,7 @@ footer {
 }
 
 .project-card {
-  background: #080F0E;
+  background: #052b20;
   padding: 1.5rem;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
@@ -801,15 +802,82 @@ footer {
   align-self: flex-end;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  background-color: #2d2d2d;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(26, 26, 26);
   border: none;
   border-radius: 8px;
   margin-top: 10px;
   cursor: pointer;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .reach-btn:hover {
-  background-color: #252525;
+  background-color: #b8b8b8;
+}
+
+
+
+
+/* Edit Profile */
+.edit-form-wrapper {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.edit-form-wrapper h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #222;
+}
+
+.edit-form-wrapper label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.edit-form-wrapper input,
+.edit-form-wrapper textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.edit-form-wrapper textarea {
+  height: 180px; /* Increased height */
+}
+
+.edit-form-wrapper input:focus,
+.edit-form-wrapper textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.edit-form-wrapper button {
+  display: block;
+  margin: 0 auto;
+  width: 200px; /* Reduced width */
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #2c2c2c; /* Greyish black */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-form-wrapper button:hover {
+  background-color: #1f1f1f;
 }

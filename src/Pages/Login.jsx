@@ -11,6 +11,26 @@ function Login() {
 
     const navigate = useNavigate();
 
+
+    useEffect(() => {
+      const checkAuthentication = async () => {
+        try {
+          const response = await axios.get("http://localhost:3000/auth/check", {
+            withCredentials: true,
+          });
+  
+          if (response.data.authenticated) {
+            navigate("/explore");
+          }
+        } catch (error) {
+          console.log("Error checking authentication:", error);
+          navigate("/");
+        }
+      };
+  
+      checkAuthentication();
+    }, [navigate]);
+
   async function handleSubmit(e) {
     e.preventDefault();
     try { 

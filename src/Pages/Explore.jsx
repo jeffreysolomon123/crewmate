@@ -68,8 +68,8 @@ function Explore() {
                   {project.description}
                 </p>
                 <Link to={`/project/${project.id}`} className="reach-btn">
-  Reach Out <FaArrowRight style={{ position: 'relative', top: '2px' }} />
-</Link>
+                  Reach Out <FaArrowRight style={{ position: 'relative', top: '2px' }} />
+                </Link>
               </div>
             ))}
           </div>

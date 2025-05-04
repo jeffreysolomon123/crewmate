@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../App.css';
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Header3 from "../Components/Header3";
 import { FaPlus } from "react-icons/fa";
 import Footer from "../Components/Footer";
@@ -39,11 +39,12 @@ function Dashboard() {
 
       try {
         const response = await axios.post(
-          "https://crewmate-api-v2.vercel.app/fetchuserprojects",
+          "http://localhost:3000/fetchuserprojects",
           { userId: userInfo.id },
           { withCredentials: true }
         );
         setProjects(response.data.projects);
+        console.log(projects)
       } catch (error) {
         console.log(error);
       } finally {
@@ -54,14 +55,27 @@ function Dashboard() {
     fetchUserProjects();
   }, [userInfo]);
 
+  const handleDelete = async (projectId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this project?");
+    if (!confirmDelete) return;
+  
+    try {
+      await axios.delete(`http://localhost:3000/delete/${projectId}`, {
+        withCredentials: true,
+      });
+      setProjects(projects.filter((p) => p.id !== projectId));
+    } catch (error) {
+      console.error("Error deleting project:", error);
+      alert("Failed to delete project.");
+    }
+  };
+  
+
   return (
     <div className="page-wrapper">
       <Header3 />
       <main className="page-content">
       <div>
-        <div className="dashboard-top-container">
-          <h1 className="dashboard-heading" style={{ marginBottom: "0", textAlign: "center" }}>Dashboard</h1>
-        </div>
 
         <div className="dashboard-projects-container">
           <h1 className="dashboard-heading" style={{ fontSize: "30px" }}>My Projects</h1>
@@ -75,9 +89,10 @@ function Dashboard() {
             projects.map((project) => (
               <div key={project.id} className="project-card">
                 <h3 className="project-title">{project.title}</h3>
+                <h4 className="project-description">{project.description}</h4>
                 <div className="project-buttons">
-                  <button className="edit-button">Edit</button>
-                  <button className="delete-button">Delete</button>
+                  <Link to={`/edit/${project.id}`} className="edit-button">Edit</Link>
+                  <button className="delete-button" onClick={() => handleDelete(project.id)}>Delete</button>
                 </div>
               </div>
             ))

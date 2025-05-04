@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import "../App.css";
 import { useNavigate, useNavigationType } from "react-router-dom";
 import axios from "axios";
@@ -9,6 +9,25 @@ function SignUp() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/auth/check", {
+          withCredentials: true,
+        });
+
+        if (response.data.authenticated) {
+          navigate("/explore");
+        }
+      } catch (error) {
+        console.log("Error checking authentication:", error);
+        navigate("/");
+      }
+    };
+
+    checkAuthentication();
+  }, [navigate]);
 
 
   async function handleSubmit(e) {

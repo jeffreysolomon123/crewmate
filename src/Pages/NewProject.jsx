@@ -53,8 +53,9 @@ function NewProject() {
   })
 
     return (
-        <div>
+        <div className="page-wrapper">
             <Header2 />
+            <main className="page-content">
           <div className="new-project-container">
             <h1 className="new-project-heading">New Project</h1>
             <form onSubmit={handleSubmit} className="new-project-form">
@@ -81,6 +82,7 @@ function NewProject() {
 </form>
 
           </div>
+          </main >
           <Footer />
         </div>
     )
